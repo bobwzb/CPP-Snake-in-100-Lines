@@ -14,8 +14,6 @@
 #define MOVE_DOWN (W)
 #define MOVE_LEFT  (-1)
 #define MOVE_RIGHT (1)
-#define MOVE_SPPED    5 // per second
-#define KEY_SPEED   200 // per second
 int map[W * H];
 HANDLE hOut;
 void display_init()
@@ -32,16 +30,7 @@ void display_update(int p)
 	for (int i = p >= 0 ? p : 0; i < end; i++) {
 		COORD pos = { COL(i) * 2, ROW(i) };
 		SetConsoleCursorPosition(hOut, pos);
-		printf(
-			map[i] == 0 ? "  " :
-			map[i] == WALL_V ? "||" :
-			map[i] == WALL_H ? "==" :
-			map[i] == FOOD ? "()" :
-			map[i] == MOVE_UP * 2 ? "/\\" :
-			map[i] == MOVE_DOWN * 2 ? "\\/" :
-			map[i] == MOVE_LEFT * 2 ? "《" :
-			map[i] == MOVE_RIGHT * 2 ? "》" :
-			"[]");
+		printf(map[i] == 0 ? "  ":map[i] == WALL_V ? "||" :map[i] == WALL_H ? "==" :map[i] == FOOD ? "()" :map[i] == MOVE_UP * 2 ? "/\\" :map[i] == MOVE_DOWN * 2 ? "\\/" :map[i] == MOVE_LEFT * 2 ? "《" :map[i] == MOVE_RIGHT * 2 ? "》" :"[]");
 	}
 }
 void new_food()
@@ -67,7 +56,7 @@ int main()
 	new_food();
 	display_update(-1);
 	while (1) {
-		for (int i = 0; i < KEY_SPEED / MOVE_SPPED; i++, Sleep(1000 / KEY_SPEED)) {
+		for (int i = 0; i < 200 / 5; i++, Sleep(1000 / 200)) {
 			if (_kbhit()) {
 				int ch = _getch();
 				if (ch == 'w' && move != MOVE_DOWN)  move = MOVE_UP;
