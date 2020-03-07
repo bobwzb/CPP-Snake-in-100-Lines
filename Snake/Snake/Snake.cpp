@@ -26,7 +26,6 @@ void display_init()
 	cci.bVisible = FALSE;
 	SetConsoleCursorInfo(hOut, &cci);
 }
-
 void display_update(int p)
 {
 	int end = p >= 0 ? p + 1 : W * H;
@@ -45,7 +44,6 @@ void display_update(int p)
 			"[]");
 	}
 }
-
 void new_food()
 {
 	int p;
@@ -53,7 +51,6 @@ void new_food()
 	map[p] = FOOD;
 	display_update(p);
 }
-
 int main()
 {
 	int move = MOVE_LEFT;
