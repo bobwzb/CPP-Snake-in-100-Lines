@@ -1,0 +1,8 @@
+﻿  Snake.cpp
+c:\users\18217\desktop\snake\snake\snake.cpp(34): warning C4838: 从“int”转换到“SHORT”需要收缩转换
+  正在生成代码
+  8 of 8 functions (100.0%) were compiled.
+    7 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  Snake.vcxproj -> C:\Users\18217\Desktop\Snake\Release\Snake.exe
